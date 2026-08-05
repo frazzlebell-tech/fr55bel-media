@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fr55bel.media.co.uk/sitemap.xml

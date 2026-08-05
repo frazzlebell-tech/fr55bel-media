@@ -1,0 +1,20 @@
+FR55BEL.MEDIA — LAUNCH CANDIDATE
+
+OPEN LOCALLY
+1. Unzip this folder.
+2. Open index.html.
+
+FREE HOSTING WITH CLOUDFLARE PAGES
+1. Sign in to Cloudflare.
+2. Open Workers & Pages.
+3. Choose Create application > Pages > Direct Upload.
+4. Upload this entire unzipped folder.
+5. Deploy.
+6. In the Pages project, open Custom domains.
+7. Add fr55bel.media.co.uk.
+8. Follow Cloudflare's DNS instructions.
+
+IMPORTANT
+- The current enquiry form opens the visitor's email app.
+- To send forms directly to your inbox, connect Web3Forms or Formspree before launch.
+- The included privacy page is a basic starting point, not legal advice.
