@@ -23,39 +23,75 @@
 <nav class="nav"><a href="index.html#work">Work</a><a href="index.html#about">About</a><a href="index.html#services">Services</a><a href="index.html#contact">Contact</a></nav>
 </header>
 <main>
-<section class="case-hero">
-<img src="assets/epic_bmw_2.jpg" alt="Epic Competitions BMW X6 Campaign">
-<div class="case-hero-content reveal visible"><p class="eyebrow">Commercial / Automotive</p><h1>Epic Competitions BMW X6 Campaign</h1></div>
-</section>
-<section class="case-layout">
-<div class="case-meta">
-<div><span>Client</span><span>Epic Competitions</span></div>
-<div><span>Category</span><span>Commercial / Automotive</span></div>
-<div><span>Created by</span><span>FR55BEL.MEDIA</span></div>
-</div>
-<div class="case-copy"><p class="eyebrow">The project</p><h2>Built to hold attention.</h2><p>A cinematic social-first campaign created for Epic Competitions to showcase the BMW X6 and drive attention across short-form platforms.</p></div>
-</section>
+<section class="client-portal-shell">
+  <aside class="portal-sidebar">
+    <a class="portal-brand" href="index.html">FR55BEL.MEDIA<span>PHOTO / VIDEO</span></a>
+    <div class="portal-nav-label">PROJECT GALLERY</div>
+    <a class="portal-nav-item active" href="#gallery">Gallery</a>
+    <a class="portal-nav-item" href="#project-info">Project Info</a>
+    <a class="portal-nav-item" href="index.html#contact">Contact</a>
+    <div class="portal-side-cta">
+      <strong>NEED MORE CONTENT?</strong>
+      <p>Let’s create more content that elevates your brand.</p>
+      <a href="index.html#contact">GET IN TOUCH →</a>
+    </div>
+  </aside>
 
-<section class="media-showcase section">
-  <div class="media-copy">
-    <p class="eyebrow">Featured film</p>
-    <h2>Watch the project.</h2>
-    <p>A cinematic social-first campaign created for Epic Competitions to showcase the BMW X6 and drive attention across short-form platforms.</p>
-  </div>
-  <div class="media-player">
-    <video controls playsinline preload="metadata">
-      <source src="assets/epic_bmw_video-lite.mp4">
-    </video>
+  <div class="portal-main">
+    <div class="portal-topbar">
+      <a class="portal-mobile-brand" href="index.html">FR55BEL.MEDIA<span>PHOTO / VIDEO</span></a>
+      <a class="portal-back" href="index.html#work">← BACK TO WORK</a>
+    </div>
+
+    <header class="portal-heading" id="project-info">
+      <div class="portal-intro">
+        <p class="portal-kicker">PROJECT GALLERY</p>
+        <h1>GALLERY</h1>
+        <span class="portal-rule"></span>
+        <p>A cinematic social-first campaign created for Epic Competitions to showcase the BMW X6 and drive attention across short-form platforms.</p>
+      </div>
+      <div class="portal-project-card">
+        <img src="assets/epic_bmw_2.jpg" alt="Epic Competitions BMW X6 Campaign">
+        <div>
+          <strong>Epic Competitions</strong>
+          <span>Epic Competitions BMW X6 Campaign</span>
+          <small>Category</small>
+          <p>Commercial / Automotive</p>
+          <small>Created by</small>
+          <p>FR55BEL.MEDIA</p>
+        </div>
+      </div>
+    </header>
+
+    <section id="gallery">
+      <div class="portal-filterbar">
+        <button class="portal-filter active" data-filter="all">▦ &nbsp; ALL MEDIA (4)</button>
+        <button class="portal-filter" data-filter="photo">▣ &nbsp; PHOTOS (3)</button>
+        <button class="portal-filter" data-filter="video">▶ &nbsp; VIDEOS (1)</button>
+      </div>
+      <div class="portal-gallery">
+        <button class="portal-media-card photo-card" type="button"><img src="assets/epic_bmw_1.jpg" alt="Epic Competitions BMW X6 Campaign gallery image" loading="lazy"><span class="media-type">PHOTO</span></button><div class="portal-media-card video-card"><video controls playsinline preload="metadata" poster="assets/epic_bmw_2.jpg"><source src="assets/epic_bmw_video-lite.mp4"></video><span class="media-type">VIDEO</span></div><button class="portal-media-card photo-card" type="button"><img src="assets/epic_bmw_2.jpg" alt="Epic Competitions BMW X6 Campaign gallery image" loading="lazy"><span class="media-type">PHOTO</span></button><button class="portal-media-card photo-card" type="button"><img src="assets/epic_bmw_3.jpg" alt="Epic Competitions BMW X6 Campaign gallery image" loading="lazy"><span class="media-type">PHOTO</span></button>
+      </div>
+    </section>
+
+    <section class="portal-next">
+      <p>HAVE A SIMILAR PROJECT?</p>
+      <h2>LET’S CREATE IT.</h2>
+      <a class="button button-light" href="index.html#contact">START A PROJECT</a>
+    </section>
   </div>
 </section>
-<section class="case-gallery"><img src="assets/epic_bmw_1.jpg" alt="Epic Competitions BMW X6 Campaign project image">
-<img src="assets/epic_bmw_2.jpg" alt="Epic Competitions BMW X6 Campaign project image">
-<img src="assets/epic_bmw_3.jpg" alt="Epic Competitions BMW X6 Campaign project image"></section>
-<section class="case-next"><p class="eyebrow">Have a similar project?</p><h2>Let’s create it.</h2><a class="button button-light" href="index.html#contact">Start a project</a></section>
 </main>
 <footer><div><a class="text-logo" href="index.html">FR55BEL.MEDIA</a><p>Cinematic videography and photography across Scotland and beyond.</p></div><div><h4>Contact</h4><a href="mailto:fraser.media18@gmail.com">fraser.media18@gmail.com</a></div><div><h4>Follow</h4><a href="https://www.instagram.com/fr55bel.media/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@fr55bel_media?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">TikTok</a></div><div><h4>Legal</h4><a href="privacy.html">Privacy Policy</a></div><div class="copyright">© 2026 FR55BEL.MEDIA</div></footer>
 <script>
 const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav');
-menu.addEventListener('click',()=>{const o=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(o));});
+if(menu&&nav) menu.addEventListener('click',()=>{const o=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(o));});
+document.querySelectorAll('.portal-filter').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.portal-filter').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+  const f=btn.dataset.filter;
+  document.querySelectorAll('.portal-media-card').forEach(card=>{
+    card.style.display=(f==='all'||card.classList.contains(f+'-card'))?'':'none';
+  });
+}));
 </script>
 </body></html>
