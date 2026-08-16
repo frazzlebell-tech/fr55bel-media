@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="FR55BEL.MEDIA Shop — coming soon.">
+  <title>Shop Coming Soon | FR55BEL.MEDIA</title>
+  <meta name="theme-color" content="#070707">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .shop-coming-soon{min-height:100svh;display:grid;grid-template-rows:auto 1fr;background:#070707;color:#fff}
+    .shop-header{display:flex;align-items:center;justify-content:space-between;padding:28px 5vw;border-bottom:1px solid rgba(255,255,255,.12)}
+    .shop-header .back-link{font:500 12px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.25);padding:14px 18px;border-radius:999px}
+    .shop-tease{display:flex;align-items:flex-end;position:relative;overflow:hidden;padding:8vw 5vw 7vw}
+    .shop-tease:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 25%,rgba(255,255,255,.08),transparent 34%),linear-gradient(180deg,#0a0a0a 0%,#050505 100%)}
+    .shop-content{position:relative;z-index:1;max-width:1100px}
+    .shop-content .eyebrow{margin-bottom:24px}
+    .shop-content h1{font-family:Oswald,sans-serif;font-size:clamp(72px,13vw,190px);line-height:.86;text-transform:uppercase;letter-spacing:-.04em;margin:0 0 30px;max-width:1100px}
+    .shop-content .lead{font:300 clamp(18px,2vw,28px)/1.5 Inter,sans-serif;color:#aaa;max-width:700px;margin:0 0 42px}
+    .shop-tags{display:flex;flex-wrap:wrap;gap:10px}
+    .shop-tags span{font:500 11px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;padding:12px 15px;border:1px solid rgba(255,255,255,.16);border-radius:999px;color:#bbb}
+    @media(max-width:700px){.shop-header{padding:22px 24px}.shop-tease{padding:90px 24px 42px;align-items:center}.shop-content h1{font-size:clamp(64px,22vw,106px)}.shop-content .lead{font-size:18px}.shop-header .back-link{padding:12px 14px}}
+  </style>
+</head>
+<body>
+  <main class="shop-coming-soon">
+    <header class="shop-header">
+      <a class="text-logo" href="index.html">FR55BEL.MEDIA</a>
+      <a class="back-link" href="index.html">Back to site</a>
+    </header>
+    <section class="shop-tease">
+      <div class="shop-content">
+        <p class="eyebrow">FR55BEL.MEDIA Shop</p>
+        <h1>Something<br>is coming.</h1>
+        <p class="lead">Presets, creator tools and digital products built around the FR55BEL.MEDIA look. Launching soon.</p>
+        <div class="shop-tags"><span>Lightroom presets</span><span>LUTs</span><span>Creator resources</span></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
