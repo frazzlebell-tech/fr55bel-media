@@ -258,43 +258,29 @@ body:has(.client-portal-shell)>.site-header{display:none}
   .portal-mobile-brand{font-size:14px}.portal-project-card{grid-template-columns:80px 1fr}.portal-project-card img{width:80px;height:98px}.portal-filter{font-size:7px}
 }
 
+
+/* ===== FR55BEL MOBILE HOMEPAGE FIX ===== */
 .mobile-project-title{display:none}
-
-
-/* ===== MOBILE HOMEPAGE CLEANUP — 2026-08-16 ===== */
 @media (max-width:700px){
-  /* Give the opening screen more breathing room */
-  .hero{min-height:92svh;padding:112px 18px 36px}
-  .hero h1{font-size:clamp(48px,15vw,66px);max-width:90vw}
-  .hero-copy{max-width:315px;margin-top:16px;font-size:12px;line-height:1.6}
-  .actions{margin-top:19px;gap:8px}
-  .actions .button{padding:13px 8px}
+  :root{--pad:22px}
+  .site-header{padding:18px 22px;background:#070707;border-bottom:1px solid #222}
+  .text-logo{font-size:20px}
+  .menu-toggle{padding:10px 16px;border-radius:999px;letter-spacing:.16em}
 
-  /* Reduce visual noise between the hero and selected work */
-  .trusted{padding-top:42px;padding-bottom:46px}
-  .trusted-logos{gap:9px;margin-top:20px}
-  .trusted-logos img{height:56px;padding:10px}
-  .work-intro{padding-top:62px;padding-bottom:28px}
-  .work-heading h2{font-size:clamp(38px,11.5vw,50px);max-width:330px}
-  .work-heading p{font-size:12px;line-height:1.6}
+  .work-intro{padding:76px 22px 30px}
+  .work-intro .eyebrow{margin-bottom:22px}
+  .work-heading{display:block}
+  .work-heading h2{font-size:clamp(42px,12.6vw,56px);line-height:.92;max-width:340px}
+  .work-heading p{font-size:13px;line-height:1.65;margin:22px 0 0;max-width:340px}
 
-  /* Hero project: let the X6 image lead, with a clean centred caption */
-  .project-list>.project-large{aspect-ratio:3/4;border-radius:10px}
+  .project-list{padding:0 22px 90px}
+  .project-list>.project-large{height:auto;aspect-ratio:4/5;border-radius:12px}
   .project-list>.project-large img{object-position:center center}
-  .project-list>.project-large .project-overlay{
-    background:linear-gradient(180deg,rgba(0,0,0,.02) 40%,rgba(0,0,0,.18) 60%,rgba(0,0,0,.92) 100%);
-  }
-  .project-list>.project-large .project-copy{
-    left:22px;right:22px;bottom:22px;text-align:center;display:flex;flex-direction:column;align-items:center;
-  }
-  .project-list>.project-large .project-copy>span{
-    font-size:7px;letter-spacing:.18em;color:#d4d4cf;margin-bottom:8px;
-  }
-  .project-list>.project-large .project-copy>h3:not(.mobile-project-title){display:none}
-  .project-list>.project-large .mobile-project-title{
-    display:block;font-size:clamp(28px,8.6vw,38px);line-height:.95;letter-spacing:-.035em;margin:0;max-width:300px;
-  }
-  .project-list>.project-large .project-copy>b{
-    display:inline-flex;align-items:center;justify-content:center;margin-top:13px;padding:9px 13px;border:1px solid rgba(255,255,255,.28);border-radius:999px;font-size:7px;letter-spacing:.14em;background:rgba(0,0,0,.18);backdrop-filter:blur(7px);
-  }
+  .project-list>.project-large .project-overlay{background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.82) 100%)}
+  .project-list>.project-large .project-copy{left:18px;right:18px;bottom:18px;text-align:center;display:flex;flex-direction:column;align-items:center}
+  .project-list>.project-large .project-copy>span{font-size:7px;letter-spacing:.18em;margin-bottom:7px}
+  .project-list>.project-large .project-copy h3{font-size:clamp(31px,9.5vw,41px);line-height:.95;margin:0;max-width:310px}
+  .desktop-project-title{display:none}
+  .mobile-project-title{display:inline}
+  .project-list>.project-large .project-copy b{opacity:1;transform:none;margin-top:13px;font-size:7px;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:9px 14px;background:rgba(0,0,0,.24)}
 }
