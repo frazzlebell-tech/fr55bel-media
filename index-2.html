@@ -19,6 +19,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "FR55BEL.MEDIA", "url": "https://fr55bel.media.co.uk/", "email": "fraser.media18@gmail.com", "areaServed": "Scotland", "sameAs": ["https://www.instagram.com/fr55bel.media/", "https://www.tiktok.com/@fr55bel_media"], "description": "Cinematic videography and photography for brands, businesses and individuals across Scotland and beyond."}</script>
+
+  <style>
+    /* Mobile-only X6 card: isolated from the original project overlay styles */
+    .fr55-x6-mobile-card{display:none}
+    @media (max-width:900px){
+      .fr55-x6-desktop-card{display:none!important}
+      .fr55-x6-mobile-card{display:block!important;margin:0!important;padding:0!important;background:#070707!important;border-radius:8px!important;overflow:hidden!important;color:#f4f4f1!important}
+      .fr55-x6-mobile-image{display:block!important;width:100%!important;height:auto!important;aspect-ratio:16/9!important;object-fit:cover!important;object-position:center 58%!important;margin:0!important;padding:0!important}
+      .fr55-x6-mobile-info{position:static!important;display:block!important;padding:18px 3px 24px!important;text-align:left!important;transform:none!important}
+      .fr55-x6-mobile-kicker{display:block!important;margin:0 0 7px!important;font-family:Inter,Arial,sans-serif!important;font-size:8px!important;font-weight:600!important;line-height:1.2!important;letter-spacing:.2em!important;text-transform:uppercase!important;color:#8f8f8b!important}
+      .fr55-x6-mobile-title{display:block!important;margin:0!important;font-family:Oswald,Arial,sans-serif!important;font-size:clamp(28px,8vw,36px)!important;font-weight:700!important;line-height:.96!important;letter-spacing:-.02em!important;text-transform:uppercase!important;color:#f4f4f1!important}
+      .fr55-x6-mobile-link{display:inline-block!important;margin-top:12px!important;font-family:Inter,Arial,sans-serif!important;font-size:8px!important;font-weight:600!important;line-height:1.2!important;letter-spacing:.16em!important;text-transform:uppercase!important;color:#f4f4f1!important;border-bottom:1px solid #555!important;padding-bottom:5px!important}
+    }
+  </style>
 </head>
 <body class="is-loading">
   <div class="loader" id="loader" aria-hidden="true">
@@ -34,7 +48,6 @@
       <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="shop.html">Shop</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -78,10 +91,19 @@
     </section>
 
     <section class="project-list">
-      <a class="project project-large reveal x6-project" href="epic-bmw-x6.html">
+      <a class="project project-large reveal fr55-x6-desktop-card" href="epic-bmw-x6.html">
         <img src="assets/epic_bmw_2.jpg" alt="Epic Competitions BMW X6 campaign">
         <div class="project-overlay"></div>
-        <div class="project-copy"><span>Epic Competitions · Automotive</span><h3>BMW X6M Competition</h3><b>View project →</b></div>
+        <div class="project-copy"><span>Automotive campaign</span><h3>Epic Competitions BMW X6 Campaign</h3><b>View project →</b></div>
+      </a>
+
+      <a class="fr55-x6-mobile-card reveal" href="epic-bmw-x6.html">
+        <img class="fr55-x6-mobile-image" src="assets/epic_bmw_2.jpg" alt="Epic Competitions BMW X6M Competition">
+        <div class="fr55-x6-mobile-info">
+          <span class="fr55-x6-mobile-kicker">Epic Competitions · Automotive</span>
+          <h3 class="fr55-x6-mobile-title">BMW X6M Competition</h3>
+          <span class="fr55-x6-mobile-link">View project →</span>
+        </div>
       </a>
 
       <div class="project-row">
