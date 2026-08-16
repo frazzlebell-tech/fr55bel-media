@@ -19,6 +19,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "FR55BEL.MEDIA", "url": "https://fr55bel.media.co.uk/", "email": "fraser.media18@gmail.com", "areaServed": "Scotland", "sameAs": ["https://www.instagram.com/fr55bel.media/", "https://www.tiktok.com/@fr55bel_media"], "description": "Cinematic videography and photography for brands, businesses and individuals across Scotland and beyond."}</script>
+
+  <style>
+    .x6-mobile-copy{display:none}
+    @media (max-width:700px){
+      .x6-feature{height:auto!important;aspect-ratio:4/5!important;border-radius:10px!important;position:relative!important;overflow:hidden!important}
+      .x6-feature>img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important}
+      .x6-feature>.project-overlay{background:linear-gradient(180deg,transparent 46%,rgba(0,0,0,.9) 100%)!important}
+      .x6-feature>.x6-desktop-copy{display:none!important}
+      .x6-feature>.x6-mobile-copy{display:flex!important;position:absolute!important;z-index:5!important;left:18px!important;right:18px!important;bottom:20px!important;top:auto!important;flex-direction:column!important;align-items:center!important;text-align:center!important;color:#fff!important;transform:none!important}
+      .x6-feature>.x6-mobile-copy span{display:block!important;margin:0 0 7px!important;font:500 8px/1.2 Inter,sans-serif!important;letter-spacing:.22em!important;text-transform:uppercase!important;color:#d7d7d2!important}
+      .x6-feature>.x6-mobile-copy h3{display:block!important;margin:0!important;max-width:300px!important;font-family:Oswald,sans-serif!important;font-size:clamp(30px,9vw,40px)!important;font-weight:700!important;line-height:.94!important;letter-spacing:-.025em!important;text-transform:uppercase!important;color:#fff!important}
+      .x6-feature>.x6-mobile-copy b{display:block!important;margin:13px 0 0!important;padding:0!important;border:0!important;background:none!important;font:600 8px/1.2 Inter,sans-serif!important;letter-spacing:.18em!important;text-transform:uppercase!important;color:#fff!important;opacity:1!important;transform:none!important}
+    }
+  </style>
 </head>
 <body class="is-loading">
   <div class="loader" id="loader" aria-hidden="true">
@@ -77,10 +91,15 @@
     </section>
 
     <section class="project-list">
-      <a class="project project-large reveal" href="epic-bmw-x6.html">
+      <a class="project project-large reveal x6-feature" href="epic-bmw-x6.html">
         <img src="assets/epic_bmw_2.jpg" alt="Epic Competitions BMW X6 campaign">
         <div class="project-overlay"></div>
-        <div class="project-copy epic-project-copy"><span class="project-kicker">Epic Competitions</span><h3 class="desktop-project-title">Epic Competitions BMW X6 Campaign</h3><h3 class="mobile-project-title">BMW X6M Competition</h3><b>View project →</b></div>
+        <div class="project-copy x6-desktop-copy"><span>Automotive campaign</span><h3>Epic Competitions BMW X6 Campaign</h3><b>View project →</b></div>
+        <div class="x6-mobile-copy" aria-hidden="true">
+          <span>Epic Competitions</span>
+          <h3>BMW X6M Competition</h3>
+          <b>View project →</b>
+        </div>
       </a>
 
       <div class="project-row">
