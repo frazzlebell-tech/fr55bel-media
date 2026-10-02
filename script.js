@@ -1,14 +1,14 @@
 
 const loader=document.getElementById('loader');
-window.addEventListener('load',()=>setTimeout(()=>{loader.classList.add('hidden');document.body.classList.remove('is-loading')},850));
+window.addEventListener('load',()=>setTimeout(()=>{loader?.classList.add('hidden');document.body.classList.remove('is-loading')},850));
 
 const header=document.querySelector('.site-header');
-window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>30));
+window.addEventListener('scroll',()=>header?.classList.toggle('scrolled',window.scrollY>30));
 
 const menu=document.querySelector('.menu-toggle');
 const nav=document.querySelector('.nav');
-menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'CLOSE':'MENU';document.body.style.overflow=open?'hidden':''});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='MENU';document.body.style.overflow='' }));
+menu?.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'CLOSE':'MENU';document.body.style.overflow=open?'hidden':''});
+nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='MENU';document.body.style.overflow='' }));
 
 const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
@@ -33,7 +33,7 @@ function animateStat(stat){
   requestAnimationFrame(frame);
 }
 
-document.getElementById('enquiryForm').addEventListener('submit',e=>{
+document.getElementById('enquiryForm')?.addEventListener('submit',e=>{
   e.preventDefault();
   const d=new FormData(e.currentTarget);
   const subject=encodeURIComponent(`Website enquiry from ${d.get('name')}`);
@@ -47,3 +47,13 @@ Project details:
 ${d.get('message')}`);
   window.location.href=`mailto:fraser.media18@gmail.com?subject=${subject}&body=${body}`;
 });
+
+
+document.querySelectorAll('.portal-filter').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.portal-filter').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const f=btn.dataset.filter;
+  document.querySelectorAll('.portal-media-card').forEach(card=>{
+    card.style.display=(f==='all'||card.classList.contains(f+'-card'))?'':'none';
+  });
+}));
