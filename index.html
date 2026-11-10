@@ -21,6 +21,15 @@
     h1{font-family:Oswald,Arial,sans-serif;font-size:clamp(44px,8vw,112px);font-weight:600;line-height:1.02;letter-spacing:-.025em;text-transform:uppercase;margin:0}
     p{font-size:clamp(11px,1.5vw,15px);font-weight:500;letter-spacing:.2em;text-transform:uppercase;margin:28px 0 0}
     .line{height:1px;width:48px;background:#fff;opacity:.85}
+    .message{margin:clamp(26px,5vh,55px) 0 20px}
+    h1{font-size:clamp(36px,6vw,80px)}
+    .game-wrap{width:min(650px,100%);margin:8px auto 0}
+    .game-top{display:flex;justify-content:space-between;align-items:center;font:500 11px Inter,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#aaa;margin-bottom:8px}
+    #game{display:block;width:100%;height:auto;aspect-ratio:3/1;touch-action:manipulation;border-bottom:1px solid #555}
+    .game-help{font:400 11px Inter,Arial,sans-serif;letter-spacing:.08em;color:#999;margin:12px 0 0;text-transform:uppercase}
+    .restart{background:none;border:1px solid #666;color:#fff;font:500 11px Inter,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;cursor:pointer}
+    .restart:hover{border-color:#fff}
+    @media(max-width:600px){.message{margin:30px 0 14px}main{padding:24px 16px}h1{font-size:clamp(34px,9vw,54px)}.game-help{font-size:10px}}
     @media(max-width:600px){.message{margin:80px 0}h1{font-size:clamp(40px,11vw,64px)}}
   </style>
 </head>
@@ -31,7 +40,58 @@
       <h1>Website is getting<br>some upgrades.</h1>
       <p>Check back soon.</p>
     </div>
-    <div class="line" aria-hidden="true"></div>
+    <div class="game-wrap">
+      <div class="game-top"><span>Dino Run</span><span id="score">Score 00000 · Best 00000</span></div>
+      <canvas id="game" width="900" height="300" aria-label="Playable dinosaur runner game. Press space or tap to jump."></canvas>
+      <p class="game-help" id="game-help">Press space or tap to start / jump</p>
+      <button class="restart" id="restart" type="button">Restart game</button>
+    </div>
+    <script>
+    (() => {
+      const canvas=document.getElementById('game'),ctx=canvas.getContext('2d'),scoreEl=document.getElementById('score'),help=document.getElementById('game-help');
+      const W=900,H=300,ground=255,dino={x:95,y:0,w:43,h:49,vy:0};
+      let state='ready',obstacles=[],clouds=[],score=0,best=0,speed=6,last=0,spawn=0,frame=0;
+      try{best=Number(localStorage.getItem('fr55-dino-best'))||0}catch(e){}
+      const reset=()=>{state='ready';obstacles=[];clouds=[{x:700,y:55},{x:350,y:95}];score=0;speed=6;spawn=65;frame=0;dino.y=ground-dino.h;dino.vy=0;help.textContent='Press space or tap to start / jump';draw()};
+      const jump=()=>{if(state==='over'){reset();state='playing'}else if(state==='ready'){state='playing'}if(state==='playing'&&dino.y>=ground-dino.h-1)dino.vy=-15.7};
+      document.addEventListener('keydown',e=>{if(['Space','ArrowUp','KeyW'].includes(e.code)){e.preventDefault();if(!e.repeat)jump()}});
+      canvas.addEventListener('pointerdown',e=>{e.preventDefault();jump()});
+      document.getElementById('restart').addEventListener('click',()=>{reset();jump()});
+      const rect=(x,y,w,h)=>ctx.fillRect(Math.round(x),Math.round(y),w,h);
+      function drawDino(){
+        ctx.fillStyle='#fff';const x=dino.x,y=dino.y;
+        rect(x+12,y+1,29,19);rect(x+34,y+10,12,7);rect(x+9,y+17,30,15);
+        rect(x+5,y+28,30,11);rect(x,y+23,12,12);rect(x+11,y+37,22,7);
+        rect(x+15,y+42,6,7);rect(x+29,y+42,6,7);
+        ctx.fillStyle='#000';rect(x+33,y+7,4,4);rect(x+35,y+20,12,3);
+        if(state==='playing'&&dino.y>=ground-dino.h-1&&Math.floor(frame/6)%2){ctx.fillStyle='#000';rect(x+15,y+44,6,6)}
+      }
+      function draw(){
+        ctx.clearRect(0,0,W,H);ctx.fillStyle='#fff';rect(0,ground,W,2);
+        ctx.fillStyle='#777';for(let i=0;i<18;i++){const x=(i*87-frame*speed*.5%1100+1100)%1100;rect(x,ground+9+(i%3)*7,12+(i%4)*7,2)}
+        ctx.strokeStyle='#666';ctx.lineWidth=2;
+        clouds.forEach(c=>{ctx.beginPath();ctx.moveTo(c.x,c.y+10);ctx.lineTo(c.x+9,c.y+10);ctx.quadraticCurveTo(c.x+10,c.y,c.x+20,c.y+4);ctx.quadraticCurveTo(c.x+30,c.y-8,c.x+38,c.y+4);ctx.lineTo(c.x+52,c.y+10);ctx.stroke()});
+        ctx.fillStyle='#fff';obstacles.forEach(o=>{rect(o.x,ground-o.h,o.w,o.h);rect(o.x-7,ground-o.h+14,7,6);rect(o.x-7,ground-o.h+7,5,10);rect(o.x+o.w,ground-o.h+22,7,6);rect(o.x+o.w+4,ground-o.h+12,4,14)});
+        drawDino();scoreEl.textContent='Score '+String(Math.floor(score)).padStart(5,'0')+' · Best '+String(Math.floor(best)).padStart(5,'0');
+        if(state==='over'){ctx.fillStyle='#fff';ctx.textAlign='center';ctx.font='600 32px Oswald,Arial,sans-serif';ctx.fillText('GAME OVER',W/2,105);ctx.font='16px Inter,Arial,sans-serif';ctx.fillText('TAP OR PRESS SPACE TO RESTART',W/2,135)}
+      }
+      function tick(t){
+        const dt=Math.min((t-last)/16.67||1,2);last=t;
+        if(state==='playing'){
+          frame+=dt;score+=dt*.17;speed=Math.min(14,6+score/65);
+          dino.vy+=.82*dt;dino.y+=dino.vy*dt;if(dino.y>ground-dino.h){dino.y=ground-dino.h;dino.vy=0}
+          spawn-=dt;if(spawn<=0){const h=35+Math.random()*26;obstacles.push({x:W+25,w:18+Math.random()*10,h});spawn=Math.max(36,95-speed*3)+Math.random()*42}
+          obstacles.forEach(o=>o.x-=speed*dt);obstacles=obstacles.filter(o=>o.x+o.w>0);
+          clouds.forEach(c=>{c.x-=.65*dt;if(c.x<-70)c.x=W+Math.random()*180});
+          if(obstacles.some(o=>dino.x+35>o.x+4&&dino.x+9<o.x+o.w-2&&dino.y+44>ground-o.h+5)){
+            state='over';best=Math.max(best,Math.floor(score));try{localStorage.setItem('fr55-dino-best',best)}catch(e){}help.textContent='Game over — tap or press space to try again';
+          }
+        }
+        draw();requestAnimationFrame(tick)
+      }
+      reset();requestAnimationFrame(tick);
+    })();
+    </script>
   </main>
 </body>
 </html>
